@@ -1,5 +1,4 @@
 const dbConfig = require("../Config/dbConfig");
-const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const e = require("express");
@@ -14,7 +13,7 @@ exports.register = function (req, res) {
       if (error) {
         console.log(error);
       }
-      if (result.length > 0) {
+      if (result.length >= 0) {
         return res.render("register", {
           message: "That email is already in used",
         });
